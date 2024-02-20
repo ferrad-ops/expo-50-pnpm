@@ -1,9 +1,9 @@
-// import { useUser } from "@clerk/clerk-expo";
+import { useUser } from "@clerk/clerk-expo";
 import React from "react";
 import { Text, View } from "react-native";
 
 const UserInfo = () => {
-//   const { user } = useUser();
+  const { user } = useUser();
 
   return (
     <View className="divide-borderPrimary divide-y-[0.6px]">
@@ -12,7 +12,7 @@ const UserInfo = () => {
           téléphone
         </Text>
         <Text className="capitalize font-GilroyMedium text-textSecondary">
-          {/* {user?.primaryPhoneNumber?.phoneNumber} */}
+          {user?.primaryPhoneNumber?.phoneNumber}
         </Text>
       </View>
       <View className="flex-row items-center justify-between py-4">

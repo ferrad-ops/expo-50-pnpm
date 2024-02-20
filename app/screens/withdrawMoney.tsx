@@ -7,15 +7,9 @@ import SelectInput from "@/components/SelectInput";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { router } from "expo-router";
 import React, { useRef, useState } from "react";
-import {
-  Keyboard,
-  StatusBar,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native";
+import { Keyboard, StatusBar, Text, TouchableWithoutFeedback, View } from "react-native";
 
-const Deposit = () => {
+const WithdrawMoney = () => {
   const currencyBottomSheetRef = useRef<BottomSheetModal>(null);
   const paymentMethodBottomSheetRef = useRef<BottomSheetModal>(null);
   function handlePresentCurrencyModal() {
@@ -27,8 +21,8 @@ const Deposit = () => {
     paymentMethodBottomSheetRef.current?.present();
   }
 
-  const [paymentMethod,setPaymentMethod] = useState('')
-  const [currency,setCurrency] = useState('')
+  const [paymentMethod,setPaymentMethod] = useState()
+  const [currency,setCurrency] = useState()
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -38,8 +32,6 @@ const Deposit = () => {
 <Text className="text-textSecondary text-center font-GilroySemiBold text-[16px]">Effectuer un dépôt</Text>
 <Text className="text-textSecondary text-center font-GilroyMedium text-xs">Effectuez vos dépôts via les méthodes de paiements les plus fiables et sécurisées</Text>
  
-          
-          
   <View className="space-y-1">
        
        <SelectInput label="Devise" title={currency} handlePresent={handlePresentCurrencyModal} />
@@ -47,7 +39,7 @@ const Deposit = () => {
      </View>
 
 <View>
-  <CustomInput defaultValue="" label="Montant" placeholder="Entrer le montant du dépôt" keyboardType="numeric" />
+  <CustomInput label="Montant" placeholder="Entrer un montant" keyboardType="numeric" value=""/>
 </View>
 
      <View className="">
@@ -55,7 +47,7 @@ const Deposit = () => {
        <SelectInput label="Méthode de paiement" title={paymentMethod} handlePresent={handlePresentPaymentMethodModal} />
       
      </View>
-     <View className="">
+     <View className="overflow-hidden rounded-lg">
          <ButtonPrimary text="continuer" handlePress={()=>router.push('/')}/>
         </View>
         <View>
@@ -74,9 +66,7 @@ const Deposit = () => {
       <CurrencyBottomSheet setSelectedItem={setCurrency} bottomSheetRef={currencyBottomSheetRef} ref={currencyBottomSheetRef} />
 
     </View>
-     </TouchableWithoutFeedback>
-    
-  );
-};
+    </TouchableWithoutFeedback>)
+}
 
-export default Deposit;
+export default WithdrawMoney;

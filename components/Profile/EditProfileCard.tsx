@@ -38,8 +38,7 @@ const EditProfileCard = () => {
          {user?.primaryEmailAddress?.emailAddress}
         </Text>
         <TouchableOpacity
-        //   onPress={() => router.push("/screens/editProfile")}
-          onPress={() => router.push("/screens/deposit")}
+          onPress={() => router.push("/screens/editProfile")}
           className="flex-row items-end space-x-1"
         >
           <Text className="font-GilroySemiBold text-[15px] text-[#635BFE]">
