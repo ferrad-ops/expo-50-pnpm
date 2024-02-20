@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import "../global.css"
 import { useColorScheme } from '@/components/useColorScheme';
 import { ClerkProvider } from '@clerk/clerk-expo';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const clerkPublishableKey = process.env
   .EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY as string;
@@ -60,11 +61,14 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-        <ClerkProvider publishableKey={clerkPublishableKey}>
-      <Stack>
+    <ClerkProvider publishableKey={clerkPublishableKey}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+  <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
+      </GestureHandlerRootView>
+    
         </ClerkProvider>
 
    
